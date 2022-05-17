@@ -27,6 +27,10 @@
 /* Custom classNames */
 @layer components {
 
+    .heading__2 {
+        @apply text-gray-100;
+    }
+
     .header {
         @apply  fixed
                 top-0
@@ -39,7 +43,7 @@
                 transition-all
                 ease-in-out
                 duration-500
-                px-4
+                px-6
                 py-4
 
                 md:px-8
@@ -59,5 +63,32 @@
                 ease-in-out
                 duration-[0.4s]
                 hover:text-[#b3b3b3]
+    }
+
+    .btn {
+        @apply  flex
+                items-center
+                gap-2
+                font-semibold
+                rounded
+                bg-red-500
+                text-white
+                mb-3
+                px-4
+                py-2
+                transition
+                ease-in-out
+                duration-500
+                text-[15px]
+                hover:bg-opacity-60
+
+                md:text-lg
+                md:px-5
+                md:py-2.5
+
+                lg:text-xl
+                lg:px-7
+                lg:py-3.5
+
     }
 }
