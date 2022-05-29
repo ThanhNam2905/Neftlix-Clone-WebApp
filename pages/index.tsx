@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
+import RowItemMovie from '../components/Row-ItemMovie'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 
@@ -28,7 +29,7 @@ const Home = ({
 }: PropsType) => {
   
   return (
-    <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]'>
+    <div className='relative h-screen bg-gradient-to-b-custom'>
       <Head>
         <title>Neftlix Clone App</title>
         <link rel="icon" href="https://res.cloudinary.com/nam290596/image/upload/v1652358784/neftlix-clone-app/icon-for-netflix-24_hbnbpz.png" />
@@ -37,15 +38,24 @@ const Home = ({
       {/* Header Component */}
       <Header/>
 
-      <main className='relative px-6 pb-24 lg:space-y-24 lg:px-16'>
+      <main className='relative px-6 pb-24  lg:px-16 z-[999]'>
         {/* Banner Component */}
         <Banner netflixOriginals={netflixOriginals}/>
 
-        <section>
-          {/* Row  */}
-          {/* Row  */}
-          {/* Row  */}
-          {/* Row  */}
+        <section className='-mt-[6rem]'>
+          {/* My List Component */}
+
+          <RowItemMovie title="Trending Now" movies={trendingNow}/>
+          <RowItemMovie title="Top Rated" movies={topRated}/>
+
+          <RowItemMovie title="Action Movies" movies={actionMovies}/>
+          <RowItemMovie title="Comedy Movies" movies={comedyMovies}/>
+          <RowItemMovie title="Scary Movies" movies={horrorMovies}/>
+          <RowItemMovie title="Romance Movies" movies={romanceMovies}/>
+          <RowItemMovie title="Documentary Movies" movies={documentaries}/>
+
+          {/* My List Component, TopRated, Action thrillers,Comedies, Scary Movie, 
+          Romance Movies, Documentaries  */}
           {/* Row  */}
           {/* Row  */}
         </section>
