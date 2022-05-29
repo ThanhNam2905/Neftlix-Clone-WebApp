@@ -14,7 +14,10 @@
                 duration-500
                 font-normal
                 text-white
-                bg-[#141414];
+                bg-[#141414]
+                !scrollbar-thin
+                !scrollbar-track-red-200
+                !scrollbar-thumb-red-500;
     }
 
     html {
