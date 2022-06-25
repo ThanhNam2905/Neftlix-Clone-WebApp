@@ -4,6 +4,6 @@ module.exports = {
 
   // config error url src <Image/> in next/image
   images: {
-    domains: ['image.tmdb.org']
+    domains: ['image.tmdb.org', 'rb.gy'],
   }
 }

@@ -92,6 +92,16 @@
                 lg:text-xl
                 lg:px-7
                 lg:py-3.5
+    }
 
+    .form-input {
+        @apply  w-full
+                bg-[#333]
+                rounded-md
+                px-5
+                py-2
+                outline-none
+                placeholder-[gray]
+                focus:bg-[#454545]
     }
 }
