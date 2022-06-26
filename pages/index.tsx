@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import RowItemMovie from '../components/Row-ItemMovie'
+import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 
@@ -27,6 +28,10 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: PropsType) => {
+
+  const { logout, loading } = useAuth();
+
+  if(loading) return null;
   
   return (
     <div className='relative h-screen bg-gradient-to-b-custom'>
