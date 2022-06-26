@@ -1,12 +1,14 @@
 import { BellIcon, SearchIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import useAuth from "../hooks/useAuth";
 
 
 function Header() {
 
     // Event scroll when user scrolled change css header 
     const [isScrolled, setIsScrolled] = useState(false);
+    const { logout } = useAuth();
 
     useEffect(() => {
         
@@ -48,7 +50,7 @@ function Header() {
                 <p className="hidden md:inline-block">Kids</p>
                 <BellIcon className="w-6 h-6 "/>
                 <Link href="/">
-                    <img src="https://res.cloudinary.com/nam290596/image/upload/v1652421477/neftlix-clone-app/icon-user-neftlix_pm1k9b.png" alt="icon-user" 
+                    <img onClick={logout} src="https://res.cloudinary.com/nam290596/image/upload/v1652421477/neftlix-clone-app/icon-user-neftlix_pm1k9b.png" alt="icon-user" 
                         className="cursor-pointer object-contain rounded-lg"/>
                 </Link>
             </div>

@@ -1,23 +1,8 @@
 import Head from "next/head"
 import Image from "next/image"
-import { useState } from "react";
 import FormLogin from "../components/Form-Login";
-import { useForm, SubmitHandler } from "react-hook-form";
-
-
-interface Inputs {
-    email: string,
-    password: string
-}
-
 
 function login() {
-
-    const [login, setLogin] = useState(false);
-
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-    const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
-
 
     return (
         <div className="relative w-screen h-screen flex flex-col bg-black md:items-center md:justify-center md:bg-transparent">
