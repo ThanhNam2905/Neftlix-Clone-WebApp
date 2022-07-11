@@ -1,11 +1,13 @@
 import Head from 'next/head'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import RowItemMovie from '../components/Row-ItemMovie'
 import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
-
+import ModalMui from '../components/ModalMui'
 
 interface PropsType {
   netflixOriginals: Movie[],
@@ -18,8 +20,8 @@ interface PropsType {
   documentaries: Movie[],
 }
 
-const Home = ({ 
-  netflixOriginals, 
+const Home = ({
+  netflixOriginals,
   trendingNow,
   topRated,
   actionMovies,
@@ -30,9 +32,10 @@ const Home = ({
 }: PropsType) => {
 
   const { logout, loading } = useAuth();
-
-  if(loading) return null;
+  const showModal = useRecoilValue(modalState); 
   
+  if (loading) return null;
+
   return (
     <div className='relative h-screen bg-gradient-to-b-custom'>
       <Head>
@@ -41,23 +44,23 @@ const Home = ({
       </Head>
 
       {/* Header Component */}
-      <Header/>
+      <Header />
 
-      <main className='relative px-6 pb-24  lg:px-16 z-[999]'>
+      <main className='relative px-6 pb-24  lg:px-16 z-[99]'>
         {/* Banner Component */}
-        <Banner netflixOriginals={netflixOriginals}/>
+        <Banner netflixOriginals={netflixOriginals} />
 
         <section className='-mt-[6rem]'>
           {/* My List Component */}
 
-          <RowItemMovie title="Trending Now" movies={trendingNow}/>
-          <RowItemMovie title="Top Rated" movies={topRated}/>
+          <RowItemMovie title="Trending Now" movies={trendingNow} />
+          <RowItemMovie title="Top Rated" movies={topRated} />
 
-          <RowItemMovie title="Action Movies" movies={actionMovies}/>
-          <RowItemMovie title="Comedy Movies" movies={comedyMovies}/>
-          <RowItemMovie title="Scary Movies" movies={horrorMovies}/>
-          <RowItemMovie title="Romance Movies" movies={romanceMovies}/>
-          <RowItemMovie title="Documentary Movies" movies={documentaries}/>
+          <RowItemMovie title="Action Movies" movies={actionMovies} />
+          <RowItemMovie title="Comedy Movies" movies={comedyMovies} />
+          <RowItemMovie title="Scary Movies" movies={horrorMovies} />
+          <RowItemMovie title="Romance Movies" movies={romanceMovies} />
+          <RowItemMovie title="Documentary Movies" movies={documentaries} />
 
           {/* My List Component, TopRated, Action thrillers,Comedies, Scary Movie, 
           Romance Movies, Documentaries  */}
@@ -65,7 +68,10 @@ const Home = ({
           {/* Row  */}
         </section>
       </main>
-      {/* Modal  */}
+      {/* Modal Component  */}
+      {
+        showModal && <ModalMui />
+      }
     </div>
   )
 }
